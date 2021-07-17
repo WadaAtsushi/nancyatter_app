@@ -1,0 +1,2 @@
+module ApricationsHelper
+end
