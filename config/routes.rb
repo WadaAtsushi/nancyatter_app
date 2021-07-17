@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  get root 'posts#top'
+
   get 'aprications/new'
   get 'aprications/admin'
   get 'aprications/top'
-  get 'users/signin'
+
+  get       '/signin', to: 'users#signin',   as: 'signin'
+  post '/user_create', to: 'users#create',   as: 'user_create'
   get 'users/login_form'
   get 'users/index'
-  get 'posts/top'
+  
   get 'posts/new'
   get 'posts/index'
   get 'posts/show'
