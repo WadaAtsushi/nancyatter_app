@@ -1,3 +1,6 @@
 class ApplicationController < ActionController::Base
-    inculude SessionHelper
+      include SessionsHelper
+
+      before_action :set_current_user
+    
 end

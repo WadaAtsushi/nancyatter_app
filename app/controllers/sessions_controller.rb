@@ -5,8 +5,12 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
+      user.save
       session[:user_id] = user.id
       flash[:notice] = "ログインしました"
+      # p "============"
+      # p session[:user_id]
+      # p "============"
       redirect_to root_path
     else
       flash[:notice] = "入力内容が間違っています"

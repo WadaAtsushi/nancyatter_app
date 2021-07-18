@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @usres = User.all
+  end
+
 
   def login
     # ログイン処理はsessionで実行
@@ -25,9 +29,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
-    flash[:notice] = "ログアウトしました"
-    redirect_to root_path
+    # ログイン処理はsessionで実行
   end
 
   private
