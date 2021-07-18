@@ -1,0 +1,10 @@
+<div class="container w-75 mt-5 ">
+  <%= tag.h1 "ログイン" %>
+    <%= form_for(:session, url: login_form_path) do |f| %> 
+      <%= f.label :"メールアドレス", class: "post-new-label" %>
+       <%= f.text_field :email, class: "form-control", placeholder: "sample@sample.com" %>
+       <%= f.label :"パスワード", class: "post-new-label" %>
+       <%= f.text_field :password, class: "form-control", type: "password" %>
+       <%= f.submit "ログイン" , class: "btn btn-primary post-new-label" %>
+    <% end %>
+</div>

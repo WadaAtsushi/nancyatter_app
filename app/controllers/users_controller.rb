@@ -13,18 +13,30 @@ class UsersController < ApplicationController
     else
       render('signin')
     end
+  end
 
+
+  def login
+    # ログイン処理はsessionで実行
   end
 
   def login_form
+    # ログイン処理はsessionで実行
   end
 
-  def index
-    @users = User.all
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to root_path
   end
 
   private
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+  
+  private
+    def login_params
+      params.require(:user).permit(:email, :password) 
+    end
 end
