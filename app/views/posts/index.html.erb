@@ -10,7 +10,7 @@
       <tbody>
         <% @posts.each do |post| %>
           <%= tag.tr %>
-            <%= tag.td post.title %>
+            <%= tag.td link_to("#{post.title}", post_show_path(post.id) ) %>
             <%= tag.td post.content %>
         <% end %>    
       </tbody>

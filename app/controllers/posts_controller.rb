@@ -8,6 +8,11 @@ class PostsController < ApplicationController
 
   def create
     @post = @current_user.posts.build(post_params)
+
+    # (1..10).each do |i|
+    #   @post = Post.new(title: "test#{i}", content: "test#{i}_content#{i}", user_id: rand(1..10))
+    # end
+
     if @post.save
       flash.notice = "投稿しました"
       redirect_to post_index_path
@@ -21,9 +26,16 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find_by(id: params[:id])
   end
 
   def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private

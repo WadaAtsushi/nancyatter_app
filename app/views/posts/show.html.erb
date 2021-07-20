@@ -1,2 +1,24 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container w-75 mt-5 ">
+  <%= tag.h1 "#{@post.user.name}の投稿" %>
+
+    <div class="card" style="float: left" >
+      <%= tag.p "投稿詳細", class:"card-header" %>
+
+      <div class="card-body">
+        <div class="card-image">
+          <%= image_tag  @post.image.url%>
+        </div>
+
+        <div class="card-text">
+          <%= tag.p "タイトル: #{@post.title}", class:"card-title" %>
+          <%= tag.p "投稿内容: #{@post.content}", class:"card-text" %>
+        </div>
+
+        <div class="card-btn">
+          <%= link_to("編集", post_update_path(@post.id), class:"btn btn-primary") %>
+          <%= link_to("削除", post_destroy_path(@post.id), data: {confirm: "「#{@post.title}」を削除します。よろしいですか？"}, class:"btn btn-primary") %>
+        </div>
+      </div>
+    </div>
+</div>
+
