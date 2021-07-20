@@ -30,12 +30,29 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.new
   end
 
   def update
+    @post = Post.find_by(id: params[:id])
+    @post.update(post_params)
+
+    if @post.save
+      flash.notice = "編集しました"
+      redirect_to post_show(@post.id)
+    else
+      flash.notice = "編集できませんでした"
+      render("post_edit/#{@post.id}")
+    end
+    
   end
 
   def destroy
+    @post = find_by(id: params[:id])
+    @post.del_flag = 1
+    @post.save
+    flash.notice = "削除しました"
+    redirect_to post_index_path
   end
 
   private
