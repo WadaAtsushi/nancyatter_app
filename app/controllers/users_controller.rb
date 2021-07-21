@@ -3,14 +3,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # def create #テストデータ作成用
+  #   (11..20).each do |i|
+  #     test_user = User.new(name: "user#{i}", email: "user#{i}@test.com", password: "user#{i}")
+  #     test_user.save
+  #   end
+  #   flash[:notice] = "test登録しました"
+  #   redirect_to root_path      
+  #   end
+  # end
+
   def create
     @user = User.new(user_params)
-    
-    # (11..20).each do |i|
-    #   test_user = User.new(name: "user#{i}", email: "user#{i}@test.com", password: "user#{i}")
-    #   test_user.save
-    # end
-
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "新規登録しました"

@@ -15,10 +15,10 @@ Rails.application.routes.draw do
 
   get         'post_new', to: 'posts#new',     as: 'post_new'
   post     'post_create', to: 'posts#create',  as: 'post_create'
-  get       'post_index', to: 'posts#index',   as: 'post_index'
+  get       'post/index', to: 'posts#index',   as: 'post_index'
   get    'post_show/:id', to: 'posts#show',    as: 'post_show'
   get    'post_edit/:id', to: 'posts#edit',    as: 'post_edit'
-  get  'post_update/:id', to: 'posts#update',  as: 'post_update'
+  patch  'post_update/:id', to: 'posts#update',  as: 'post_update'
   get 'post_destroy/:id', to: 'posts#destroy', as: 'post_destroy'
   get 'posts/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
