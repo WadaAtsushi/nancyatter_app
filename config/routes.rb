@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get root 'posts#top'
+  root 'posts#top'
 
   get 'aprications/new'
   get 'aprications/admin'

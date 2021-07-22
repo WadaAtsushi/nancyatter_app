@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
 
   create_table "applications", force: :cascade do |t|
     t.string "app_name"
-    t.integer "admin_id"
+    t.integer "admin_id" # adminは以下のuser_idでいいのでは？
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  # user_idも変えたほうがいい。フォローしてくれる人のIDにする
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  # user_idも変えたほうがいい。フォローしてくれる人のIDにする
   create_table "likes", force: :cascade do |t|
     t.string "user_id"
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  # user_idも変えたほうがいい。フォローしてくれる人のIDにする
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
@@ -56,11 +56,17 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
     t.datetime "updated_at", null: false
     t.integer "del_flag"
   end
+  # SNSをフォローしてくれる or 登録してくれるユーザーテーブルが必要?
+  # name
+  # email
+  # password_digest
+  # app_id(SNS)
+  # del_flg
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password" # password_digestがあれば、passwordカラムは不要。 下記でpassword, password_confirmationがある。
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
