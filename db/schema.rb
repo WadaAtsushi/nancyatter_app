@@ -10,21 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_20_210922) do
+ActiveRecord::Schema.define(version: 2021_07_30_123248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applications", force: :cascade do |t|
-    t.string "app_name"
-    t.integer "admin_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.integer "app_id"
+  create_table "appcategories", force: :cascade do |t|
     t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,15 +23,48 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
-    t.integer "user_id"
+    t.integer "menbure_id"
     t.string "comment_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "user_id"
+    t.string "menbure_id"
     t.string "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menburs", force: :cascade do |t|
+    t.integer "app_id"
+    t.integer "user_id"
+    t.string "nickname"
+    t.string "image"
+    t.string "porfile"
+    t.integer "del_fag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nancyatterapps", force: :cascade do |t|
+    t.string "app_name"
+    t.string "introduction"
+    t.string "loure"
+    t.string "image"
+    t.integer "user_id"
+    t.integer "appcategory_id"
+    t.string "feature_like"
+    t.string "feature_comment"
+    t.string "feature_category"
+    t.string "feature_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postcategories", force: :cascade do |t|
+    t.integer "app_id"
+    t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
     t.string "content"
     t.integer "user_id"
     t.integer "app_id"
-    t.integer "category_id"
+    t.integer "postcategory_id"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

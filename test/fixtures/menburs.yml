@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  app_id: 1
+  user_id: 1
+  nickname: MyString
+  image: MyString
+  porfile: MyString
+  del_fag: 1
+
+two:
+  app_id: 1
+  user_id: 1
+  nickname: MyString
+  image: MyString
+  porfile: MyString
+  del_fag: 1

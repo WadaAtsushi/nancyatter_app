@@ -6,7 +6,7 @@
           <%= tag.th "image" %>
           <%= tag.th "user" %>
           <%= tag.th "title" %>
-          <%= tag.th "content" %>
+          <%= tag.th "category" %>
       </thead>
       　
       <tbody>
@@ -16,7 +16,7 @@
               <%= tag.td image_tag post.image.url, class: "post-index-image" %>
               <%= tag.td post.user.name %>
               <%= tag.td link_to("#{post.title}", post_show_path(post.id) ) %>
-              <%= tag.td link_to("#{post.content}", post_show_path(post.id) ) %>
+              <%= tag.td link_to("#{post.categorys.}", post_show_path(post.id) ) %>
           <% end %>
         <% end %>    
       </tbody>
