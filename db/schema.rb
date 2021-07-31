@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_123248) do
+ActiveRecord::Schema.define(version: 2021_07_31_224830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_123248) do
     t.string "feature_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "main_text"
   end
 
   create_table "postcategories", force: :cascade do |t|
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_123248) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "del_flag"
+    t.string "password"
   end
 
 end

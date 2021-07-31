@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get root 'posts#top'
+  root 'nancyatterapps#top'
 
-  get 'aprications/new'
-  get 'aprications/admin'
-  get 'aprications/top'
+  get     'nancyatterapp_new', to: 'nancyatterapps#new',    as:'app_new'
+  post 'nancyatterapp_create', to: 'nancyatterapps#create', as:'newapp_create'
 
   get       'signin', to: 'users#signin',  as: 'signin'
   post 'user_create', to: 'users#create',  as: 'user_create'
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   post   'login', to: 'sessions#create',  as: 'login_action'
   get   'logout', to: 'sessions#destroy', as: 'logout'
 
+  get         'posts_top', to: 'posts#top',     as: 'posts_top'
   get          'post_new', to: 'posts#new',     as: 'post_new'
   post      'post_create', to: 'posts#create',  as: 'post_create'
   get        'post/index', to: 'posts#index',   as: 'post_index'

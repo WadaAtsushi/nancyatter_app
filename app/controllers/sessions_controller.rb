@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       user.save
       session[:user_id] = user.id
-      flash[:notice] = "ログインしました"
+      flash.notice = "ログインしました"
       redirect_to root_path
     else
-      flash[:notice] = "入力内容が間違っています"
+      flash.notice = "入力内容が間違っています"
       render :new
     end
   end
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   def destroy
     if session[:user_id]
       session[:user_id] = nil
-      flash[:notice] = "ログアウトしました"
+      flash.notice = "ログアウトしました"
       redirect_to root_path
     end
   end

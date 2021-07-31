@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def top
+    @nancyatterapp = Nancyatterapp.find_by(id: @current_app.id)
   end
 
   def new
