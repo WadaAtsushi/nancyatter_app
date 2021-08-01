@@ -31,6 +31,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    # @menburs = Menbur.find_by(user_id: @current_user.id)
+    # @nancyatterapps = Nancyatterapp.(id: @menburs.app_id)
+  end
+
 
   def login
     # ログイン処理はsessionで実行

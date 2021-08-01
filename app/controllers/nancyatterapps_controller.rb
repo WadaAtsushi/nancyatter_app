@@ -1,8 +1,5 @@
 class NancyatterappsController < ApplicationController
   def top
-    if session[:app_id]
-      session[:app_id] = nil
-    end
   end
 
   def new
@@ -25,6 +22,18 @@ class NancyatterappsController < ApplicationController
 
   def index
     @nancyatterapps = Nancyatterapp.all
+  end
+
+  def login
+    @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
+    session[:app_id] = @nancyatterapp.id
+    redirect_to posts_top_path
+  end
+
+  def logout
+    session[:app_id] = nil
+    flash.notice = 'メインアプリに戻りました'
+    redirect_to root_path
   end
 
   private

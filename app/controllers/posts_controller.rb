@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def top
-    @nancyatterapp = Nancyatterapp.find_by(id: @current_app.id)
+    @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
   end
 
   def new
