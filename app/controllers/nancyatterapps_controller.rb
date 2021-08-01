@@ -24,6 +24,7 @@ class NancyatterappsController < ApplicationController
   end
 
   def index
+    @nancyatterapps = Nancyatterapp.all
   end
 
   private

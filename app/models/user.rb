@@ -7,5 +7,6 @@ class User < ApplicationRecord
 
     has_many :posts
     has_many :comments
+    has_many :nancyatterapps
     #belongs_to :application
 end

@@ -1,2 +1,20 @@
-<h1>Nancyatterapps#index</h1>
-<p>Find me in app/views/nancyatterapps/index.html.erb</p>
+<div class="container w-75 mt-5">
+  <%= tag.h1 "アプリ一覧" %>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+  <% if @nancyatterapps %>
+    <% @nancyatterapps.each do |nancyatterapp| %>
+        <div class="col">
+          <div class="card shadow-sm">
+            <%= image_tag nancyatterapp.image.url class:"bd-placeholder-img card-img-top" %>
+            <div class="card-body">
+              <%= link_to((tag.h4 "タイトル：#{nancyatterapp.app_name}"), posts_top_path(nancyatterapp.id), {class:"card-title"}) %>
+              <%= tag.p "管理者：#{nancyatterapp.user.name}", class:"card-text" %>
+              <%= tag.p "作成日：#{nancyatterapp.created_at}", class:"card-text" %>
+              
+            </div>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+</div>

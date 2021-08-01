@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'nancyatterapps#top'
 
-  get     'nancyatterapp_new', to: 'nancyatterapps#new',    as:'app_new'
-  post 'nancyatterapp_create', to: 'nancyatterapps#create', as:'newapp_create'
+  get     'nancyatterapps_new', to: 'nancyatterapps#new',    as:'app_new'
+  post 'nancyatterapps_create', to: 'nancyatterapps#create', as:'newapp_create'
+  get   'nancyatterapps_index', to: 'nancyatterapps#index',  as:'app_index'
 
   get       'signin', to: 'users#signin',  as: 'signin'
   post 'user_create', to: 'users#create',  as: 'user_create'
