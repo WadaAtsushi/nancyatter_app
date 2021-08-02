@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_224830) do
+ActiveRecord::Schema.define(version: 2021_08_02_120203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_224830) do
     t.integer "app_id"
     t.integer "user_id"
     t.string "nickname"
-    t.string "image"
-    t.string "porfile"
+    t.string "profile_image"
+    t.string "profile"
     t.integer "del_fag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_224830) do
     t.string "app_name"
     t.string "introduction"
     t.string "loure"
-    t.string "image"
+    t.string "app_image"
     t.integer "user_id"
     t.integer "appcategory_id"
     t.string "feature_like"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_224830) do
     t.integer "user_id"
     t.integer "app_id"
     t.integer "postcategory_id"
-    t.string "image"
+    t.string "post_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "del_flag"

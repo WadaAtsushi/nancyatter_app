@@ -38,7 +38,7 @@ class NancyatterappsController < ApplicationController
 
   private
     def nancyatter_params
-      params.require(:nancyatterapp).permit(:app_name, :main_text, :introduction, :loure, :image, :category_id, :feature_like, :feature_comment, :feature_category, :feature_image) 
+      params.require(:nancyatterapp).permit(:app_name, :main_text, :introduction, :loure, :app_image, :category_id, :feature_like, :feature_comment, :feature_category, :feature_image) 
     end
 
 

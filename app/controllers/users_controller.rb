@@ -16,11 +16,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-   
-
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "新規登録しました"
+      flash.notice = "新規登録しました"
       redirect_to root_path      
     else
       render('signin')
@@ -54,8 +52,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
   
-  private
-    def login_params
-      params.require(:user).permit(:email, :password) 
-    end
 end

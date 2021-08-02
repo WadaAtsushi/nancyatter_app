@@ -1,5 +1,7 @@
 class Nancyatterapp < ApplicationRecord
-    mount_uploader :image, ImageUploader
+    validates :app_image, presence: true
+
+    mount_uploader :app_image, AppImageUploader
 
     belongs_to :user
     has_many :menburs

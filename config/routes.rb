@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   get 'nancyatterapps_login/:id', to: 'nancyatterapps#login',   as: 'app_login'
   get    'nancyatterapps_logout', to: 'nancyatterapps#logout',  as:'app_logout'
 
-
   get        'signin', to: 'users#signin',  as: 'signin'
   post  'user_create', to: 'users#create',  as: 'user_create'
   get  'users_index',  to: 'users#index',   as: 'users_index'
   get     'user_show', to: 'users#show',    as: 'user_show'
 
+  get     'menbur_new', to: 'menburs#new',      as: 'menbur_new'
+  post 'menbur_create', to: 'menburs#create',   as: 'menbur_create'
+  get  'menburs_index', to: 'menburs#index',    as:  'menburs_index'
+ 
   get    'login', to: 'sessions#new',     as: 'login_form'
   post   'login', to: 'sessions#create',  as: 'login_action'
   get   'logout', to: 'sessions#destroy', as: 'logout'

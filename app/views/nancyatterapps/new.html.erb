@@ -12,7 +12,7 @@
       <%= tag.div f.label :"カテゴリー", class: "mt-3" %>
       <%= f.collection_select :appcategory_id, Appcategory.all, :id, :category_name, {include_blank: "選択してください"},{class: "form-control input-sm"} %>
       <%= tag.div f.label :"SNSトップ画像", class: "mt-3" %>
-      <%= f.file_field :image %>
+      <%= f.file_field :app_image %>
       
       <%= tag.div f.label :"いいね機能", class: "mt-3" %>
       <%= f.select :feature_like, [["いる","implement"], ["いらない",nil]], include_blank: "選択して下さい" %>

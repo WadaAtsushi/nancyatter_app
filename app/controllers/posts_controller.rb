@@ -7,15 +7,15 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # def create
-  #   @post = @current_user.posts.build(post_params)
-  #   if @post.save
-  #      flash.notice = "投稿しました"
-  #      redirect_to post_index_path
-  #   else
-  #     render('post_new')
-  #   end
-  # end
+  def create
+    @post = @current_user.posts.build(post_params)
+    if @post.save
+       flash.notice = "投稿しました"
+       redirect_to post_index_path
+    else
+      render('post_new')
+    end
+  end
 
   def index
     @posts = Post.all.page(params[:page]).per(10)
@@ -51,38 +51,38 @@ class PostsController < ApplicationController
     redirect_to post_index_path
   end
 
-  def create  #テストデータ作成用
+  # def create  #テストデータ作成用
     
-    user_session = session[:user_id]
-    (1..5).each do |i|
-      test_user = User.find_by(name: "user#{rand(1..10)}")
-      category = Category.find_by(post_category: "post_category_#{rand(1..5)}")
-      p "========="
-      p category
-      p "========="
-      session[:user_id] = test_user.id
-      test_post = Post.new(
-        title: "test#{i}", 
-        content: "test#{i}_content#{i}_hogefugahogefuga", 
-        image: params[:post][:image],
-        user_id: session[:user_id],
-        category_id: category.id
-      )
-      p "========="
-      p test_post
-      p "========="
+  #   user_session = session[:user_id]
+  #   (1..5).each do |i|
+  #     test_user = User.find_by(name: "user#{rand(1..10)}")
+  #     category = Category.find_by(post_category: "post_category_#{rand(1..5)}")
+  #     p "========="
+  #     p category
+  #     p "========="
+  #     session[:user_id] = test_user.id
+  #     test_post = Post.new(
+  #       title: "test#{i}", 
+  #       content: "test#{i}_content#{i}_hogefugahogefuga", 
+  #       image: params[:post][:image],
+  #       user_id: session[:user_id],
+  #       category_id: category.id
+  #     )
+  #     p "========="
+  #     p test_post
+  #     p "========="
 
-      test_post.save
-    end
-    session[:user_id] = user_session
+  #     test_post.save
+  #   end
+  #   session[:user_id] = user_session
 
-    flash.notice = "投稿しました"
-    redirect_to post_index_path
-  end
+  #   flash.notice = "投稿しました"
+  #   redirect_to post_index_path
+  # end
 
   private
     def post_params
-      params.require(:post).permit(:title, :content, :image)
+      params.require(:post).permit(:title, :content, :post_image)
     end
 
 end

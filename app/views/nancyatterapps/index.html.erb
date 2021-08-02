@@ -6,7 +6,7 @@
     <% @nancyatterapps.each do |nancyatterapp| %>
         <div class="col">
           <div class="card shadow-sm">
-            <%= image_tag nancyatterapp.image.url class:"bd-placeholder-img card-img-top" %>
+            <%= image_tag nancyatterapp.app_image.url class:"bd-placeholder-img card-img-top" %>
             <div class="card-body">
               <%= link_to((tag.h4 "タイトル：#{nancyatterapp.app_name}"), app_login_path(nancyatterapp.id), {class:"card-title"}) %>
               <%= tag.p "管理者：#{nancyatterapp.user.name}", class:"card-text" %>
