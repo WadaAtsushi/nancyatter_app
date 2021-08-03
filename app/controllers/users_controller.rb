@@ -3,15 +3,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # def create #テストデータ作成用
-  #   (11..20).each do |i|
-  #     test_user = User.new(name: "user#{i}", email: "user#{i}@test.com", password: "user#{i}")
-  #     test_user.save
-  #   end
-  #   flash[:notice] = "test登録しました"
-  #   redirect_to root_path      
-  #   end
-  # end
 
   def create
     @user = User.new(user_params)
@@ -34,18 +25,6 @@ class UsersController < ApplicationController
     # @nancyatterapps = Nancyatterapp.(id: @menburs.app_id)
   end
 
-
-  def login
-    # ログイン処理はsessionで実行
-  end
-
-  def login_form
-    # ログイン処理はsessionで実行
-  end
-
-  def logout
-    # ログイン処理はsessionで実行
-  end
 
   private
     def user_params

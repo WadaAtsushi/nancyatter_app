@@ -7,8 +7,14 @@ module SessionsHelper
     end
 
     def set_current_app
-      if session[:app_id]
-        @current_app = Nancyatterapp.find_by(id: session[:app_id])
+      if session[:nancyatterapp_id]
+        @current_app = Nancyatterapp.find_by(id: session[:nancyatterapp_id])
+      end
+    end
+
+    def set_current_menbur
+      if session[:menbur_id]
+        @current_menbur = Nancyatterapp.find_by(id: session[:menbur_id])
       end
     end
 end

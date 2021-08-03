@@ -1,2 +1,21 @@
-<h1>Menburs#index</h1>
-<p>Find me in app/views/menburs/index.html.erb</p>
+<div class="container w-75 mt-5">
+  <%= tag.h1 "appメンバー一覧" %>
+    <table class="table">
+      <thead>
+        <%= tag.tr %>
+          <%= tag.th "image" %>
+          <%= tag.th "nickname" %>
+      </thead>
+      　
+      <tbody>
+        <% @menburs.each do |menbur| %>
+          <% if menbur.del_flag!=1 %>
+            <%= tag.tr %>
+              <%= tag.td image_tag menbur.profile_image.url, class: "menburs-index-image" %>
+              <%= tag.td menbur.nickname %>
+          <% end %>
+        <% end %>    
+      </tbody>
+    </table>
+
+</div>

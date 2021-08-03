@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_120203) do
+ActiveRecord::Schema.define(version: 2021_08_03_025216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 2021_08_02_120203) do
   end
 
   create_table "menburs", force: :cascade do |t|
-    t.integer "app_id"
+    t.integer "nancyatterapp_id"
     t.integer "user_id"
     t.string "nickname"
     t.string "profile_image"
     t.string "profile"
-    t.integer "del_fag"
+    t.integer "del_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_120203) do
   end
 
   create_table "postcategories", force: :cascade do |t|
-    t.integer "app_id"
+    t.integer "nancyatterapp_id"
     t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_120203) do
     t.string "title"
     t.string "content"
     t.integer "user_id"
-    t.integer "app_id"
+    t.integer "nancyatterapp_id"
     t.integer "postcategory_id"
     t.string "post_image"
     t.datetime "created_at", null: false
