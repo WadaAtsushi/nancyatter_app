@@ -1,6 +1,21 @@
-<%= tag.h4 "とりあえず表示" %>
-<%# <% if @menburs.each do |menbur| %>
-  <%# <%= tag.div menbur.id %> %>
-  <%# <%= tag.div menbur.nancyatter.app_name %> %>
-  <%# <%= tag.div menbur.nickname %> %>
-<%# <% end %> %> %>
+<div class="container mx-auto" style="margin-top: 40px">
+ <%= tag.h1 "#{@user.name}のマイページです" %>
+  <div class="card" style="float: left">
+    <%= tag.p "利用しているアプリ", class:"card-header" %>
+      <% if @user.nancyatterapps %>
+        <% @user.nancyatterapps.each do |nancyatterapp| %>
+          <div class="card-body" >
+            <div class="card-image">
+              <%= image_tag nancyatterapp.app_image.url %>
+            </div>
+            <div class="card-text" >
+              <%= tag.p "アプリ名： #{nancyatterapp.app_name}", class:"card-title" %>
+            </div>
+            <div class="card-btn">
+              <%= link_to("アプリへ", posts_top_path(nancyatterapp.id), class: "btn btn-primary") %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
