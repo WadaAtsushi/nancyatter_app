@@ -6,7 +6,7 @@ class Post < ApplicationRecord
     
     mount_uploader :post_image, PostImageUploader
 
-    belongs_to :user
+    belongs_to :menbur
     has_many :categorys
     
 end

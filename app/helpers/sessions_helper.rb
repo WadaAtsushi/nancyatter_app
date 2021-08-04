@@ -14,7 +14,7 @@ module SessionsHelper
 
     def set_current_menbur
       if session[:menbur_id]
-        @current_menbur = Nancyatterapp.find_by(id: session[:menbur_id])
+        @current_menbur = Menbur.find_by(id: session[:menbur_id])
       end
     end
 end

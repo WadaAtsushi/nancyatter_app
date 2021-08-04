@@ -5,4 +5,5 @@ class Menbur < ApplicationRecord
     
     belongs_to :nancyatterapp
     belongs_to :user
+    has_many :posts
 end

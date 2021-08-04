@@ -12,7 +12,7 @@
               <%= tag.p "アプリ名： #{nancyatterapp.app_name}", class:"card-title" %>
             </div>
             <div class="card-btn">
-              <%= link_to("アプリへ", posts_top_path(nancyatterapp.id), class: "btn btn-primary") %>
+              <%= link_to("アプリへ", app_login_path(nancyatterapp.id), class: "btn btn-primary") %>
             </div>
           </div>
         <% end %>

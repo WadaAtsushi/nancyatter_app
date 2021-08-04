@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get       'nancyatterapps_new', to: 'nancyatterapps#new',     as:'app_new'
   post   'nancyatterapps_create', to: 'nancyatterapps#create',  as:'newapp_create'
   get     'nancyatterapps_index', to: 'nancyatterapps#index',   as:'app_index'
-  get 'nancyatterapps_login/:id', to: 'nancyatterapps#login',   as: 'app_login'
+  get 'nancyatterapps_login/:id', to: 'nancyatterapps#login',   as:'app_login'
   get    'nancyatterapps_logout', to: 'nancyatterapps#logout',  as:'app_logout'
 
   get        'signin', to: 'users#signin',  as: 'signin'

@@ -11,7 +11,7 @@ class NancyatterappsController < ApplicationController
     @nancyatterapp.user_id = @current_user.id
 
     if @nancyatterapp.save
-      session[:app_id] = @nancyatterapp.id
+      session[:nancyatterapp_id] = @nancyatterapp.id
       flash.notice = "アプリ作成しました"
       redirect_to posts_top_path(@nancyatterapp.id)
     else
@@ -26,12 +26,17 @@ class NancyatterappsController < ApplicationController
 
   def login
     @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
-    session[:app_id] = @nancyatterapp.id
-    redirect_to posts_top_path
+    session[:nancyatterapp_id] = @nancyatterapp.id
+    menbur = Menbur.find_by(user_id: @current_user, nancyatterapp_id: @nancyatterapp.id)
+    if menbur
+      session[:menbur_id] = menbur.id
+    end
+    redirect_to posts_top_path(@nancyatterapp.id)
   end
 
   def logout
-    session[:app_id] = nil
+    session[:nancyatterapp_id] = nil
+    session[:menbur_id] = nil
     flash.notice = 'メインアプリに戻りました'
     redirect_to root_path
   end

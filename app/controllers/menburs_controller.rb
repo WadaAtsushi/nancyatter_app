@@ -4,11 +4,11 @@ class MenbursController < ApplicationController
   end
 
   def create
-    @menbur = Menbur.new(menbur_params)
-    @menbur.user_id = @current_user.id
+    @menbur = @current_user.menburs.new(menbur_params)
     @menbur.nancyatterapp_id = @current_app.id
 
     if @menbur.save
+      session[:menbur_id] = @menbur.id
       flash.notice = "新規メンバー登録しました"
       redirect_to posts_top_path(@current_app.id)
     else
