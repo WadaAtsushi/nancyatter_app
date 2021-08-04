@@ -48,3 +48,38 @@
 #     redirect_to root_path
 # end
 
+
+# ====== menbur テストデータ作成 =====================================
+# *** menbur コントローラに貼り付けて実行 ***
+
+# def create
+#     user_session = session[:user_id]
+#     app_session = session[:nancyatterapp_id]
+#     (1..50).each do |i|
+#         test_user = User.all.sample
+#         session[:user_id] = test_user.id
+#         test_app = Nancyatterapp.all.sample
+#         session[:nancyatterapp_id] = test_app.id
+
+#         test_menbur = Menbur.new(
+#             nickname: "menbur#{i}",
+#             profile: "menbur#{i}のテストプロフィール。===test#{i}===",
+#             profile_image: params[:menbur][:profile_image],
+#             nancyatterapp_id: session[:nancyatterapp_id],
+#             user_id: session[:user_id]
+#         )
+#         p "========="
+#         p test_user
+#         p test_app
+#         p test_menbur
+#         p "========="
+
+#         test_menbur.save
+#         session[:menbur_id] = test_menbur.id
+#     end
+#     session[:user_id] = user_session
+#     session[:nancyatterapp_id] = app_session
+#     redirect_to root_path
+# end
+
+

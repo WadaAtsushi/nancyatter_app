@@ -5,6 +5,8 @@
         <%= tag.tr %>
           <%= tag.th "image" %>
           <%= tag.th "nickname" %>
+          <%= tag.th "user" %>
+          <%= tag.th "app" %>
       </thead>
       　
       <tbody>
@@ -13,6 +15,8 @@
             <%= tag.tr %>
               <%= tag.td image_tag menbur.profile_image.url, class: "menburs-index-image" %>
               <%= tag.td menbur.nickname %>
+              <%= tag.td menbur.user.name %>
+              <%= tag.td menbur.nancyatterapp.app_name %>
           <% end %>
         <% end %>    
       </tbody>

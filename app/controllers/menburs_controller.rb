@@ -17,7 +17,7 @@ class MenbursController < ApplicationController
   end
 
   def index
-    @menburs = Menbur.all
+    @menburs = Menbur.where(nancyatterapp_id: @current_app)
   end
 
   def show
@@ -25,6 +25,7 @@ class MenbursController < ApplicationController
 
   def destroy
   end
+
 
   private
     def menbur_params

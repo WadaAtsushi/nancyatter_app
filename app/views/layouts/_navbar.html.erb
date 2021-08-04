@@ -28,16 +28,17 @@
           <%= link_to("会員登録", signin_path, class: "nav-item nav-link active") %>
           <%= link_to("ログイン", login_form_path,  class: "nav-item nav-link active") %>
         <% end %>
-        <!--確認用-->
-        <% if current_user %>
-         <%= "#{@current_user.name}" %>
-        <% end %>
-        <% if current_app %>
-         <%= "#{@current_app.app_name}" %>
-        <% end %>
-        <% if current_menbur %>
-         <%= "#{@current_menbur.nickname}" %>
-        <% end %>
+        <!-----確認用----->
+              <% if current_user %>
+              <%= "#{@current_user.name}" %>
+              <% end %>
+              <% if current_app %>
+              <%= "#{@current_app.app_name}" %>
+              <% end %>
+              <% if current_menbur %>
+              <%= "#{@current_menbur.nickname}" %>
+              <% end %>
+        <!---------------->
       </ul>
     </div>
   </div>
