@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: @current_user.id)
-    # @menburs = Menbur.find_by(user_id: @current_user.id)
+    @menburs = Menbur.where(user_id: @current_user.id)
     # @nancyatterapps = Nancyatterapp.(id: @menburs.app_id)
   end
 

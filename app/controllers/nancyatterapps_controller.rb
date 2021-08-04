@@ -27,10 +27,22 @@ class NancyatterappsController < ApplicationController
   def login
     @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
     session[:nancyatterapp_id] = @nancyatterapp.id
-    menbur = Menbur.find_by(user_id: @current_user, nancyatterapp_id: @nancyatterapp.id)
+    
+    menbur = Menbur.find_by(user_id: @current_user.id, nancyatterapp_id: @nancyatterapp.id)
+    p "============"
+    p menbur
+    p @current_user.id
+    p @nancyatterapp.id
+    p "============"
+
     if menbur
       session[:menbur_id] = menbur.id
     end
+
+    p "============="
+    p menbur
+    p "============="
+
     redirect_to posts_top_path(@nancyatterapp.id)
   end
 

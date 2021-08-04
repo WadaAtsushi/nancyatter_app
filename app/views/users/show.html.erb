@@ -2,19 +2,21 @@
  <%= tag.h1 "#{@user.name}のマイページです" %>
   <div class="card" style="float: left">
     <%= tag.p "利用しているアプリ", class:"card-header" %>
-      <% if @user.nancyatterapps %>
-        <% @user.nancyatterapps.each do |nancyatterapp| %>
-          <div class="card-body" >
-            <div class="card-image">
-              <%= image_tag nancyatterapp.app_image.url %>
+      <% if @user.menburs %>
+        <% @user.menburs.each do |menbur| %>
+            <div class="card-body" >
+              <div class="card-image">
+                <%= image_tag menbur.nancyatterapp.app_image.url %>
+              </div>
+              <div class="card-text" >
+                <%= tag.p "アプリ名： #{menbur.nancyatterapp.app_name}", class:"card-title" %>
+                <%= tag.p "ユーザー： #{@user.name}" %>
+                <%= tag.p "ニックネーム： #{menbur.nickname}" %>
+              </div>
+              <div class="user-show-card-btn">
+                <%= link_to("アプリへ", app_login_path(menbur.nancyatterapp.id), class: "btn btn-primary") %>
+              </div>
             </div>
-            <div class="card-text" >
-              <%= tag.p "アプリ名： #{nancyatterapp.app_name}", class:"card-title" %>
-            </div>
-            <div class="card-btn">
-              <%= link_to("アプリへ", app_login_path(nancyatterapp.id), class: "btn btn-primary") %>
-            </div>
-          </div>
         <% end %>
       <% end %>
   </div>

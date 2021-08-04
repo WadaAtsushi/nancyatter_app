@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get        'signin', to: 'users#signin',  as: 'signin'
   post  'user_create', to: 'users#create',  as: 'user_create'
   get  'users_index',  to: 'users#index',   as: 'users_index'
-  get     'user_show/:id', to: 'users#show',    as: 'user_show'
+  get     'user_show', to: 'users#show',    as: 'user_show'
 
   get     'menbur_new', to: 'menburs#new',      as: 'menbur_new'
   post 'menbur_create', to: 'menburs#create',   as: 'menbur_create'
