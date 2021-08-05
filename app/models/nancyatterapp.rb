@@ -5,6 +5,7 @@ class Nancyatterapp < ApplicationRecord
 
     belongs_to :user
     has_many :menburs
-    has_many :appcategories
+    belongs_to :appcategory
+    has_many :postcategories
     
 end

@@ -1,3 +1,3 @@
 class Appcategory < ApplicationRecord
-    belongs_to :nancyatterapp
+    has_many :nancyatterapps
 end

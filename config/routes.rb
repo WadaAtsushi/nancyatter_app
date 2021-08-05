@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'nancyatterapps#top'
 
-  get       'nancyatterapps_new', to: 'nancyatterapps#new',     as:'app_new'
-  post   'nancyatterapps_create', to: 'nancyatterapps#create',  as:'newapp_create'
-  get     'nancyatterapps_index', to: 'nancyatterapps#index',   as:'app_index'
-  get 'nancyatterapps_login/:id', to: 'nancyatterapps#login',   as:'app_login'
-  get    'nancyatterapps_logout', to: 'nancyatterapps#logout',  as:'app_logout'
+  get         'nancyatterapps_new', to: 'nancyatterapps#new',     as: 'app_new'
+  post     'nancyatterapps_create', to: 'nancyatterapps#create',  as: 'newapp_create'
+  patch 'nancyatterapps_update/:id', to: 'nancyatterapps#update',  as: 'app_update'
+  get       'nancyatterapps_index', to: 'nancyatterapps#index',   as: 'app_index'
+  get   'nancyatterapps_login/:id', to: 'nancyatterapps#login',   as: 'app_login'
+  get      'nancyatterapps_logout', to: 'nancyatterapps#logout',  as: 'app_logout'
+  get    'nancyatterapp_admin/:id', to: 'nancyatterapps#admin',   as: 'app_admin'
 
   get        'signin', to: 'users#signin',  as: 'signin'
   post  'user_create', to: 'users#create',  as: 'user_create'
@@ -19,6 +21,9 @@ Rails.application.routes.draw do
   get    'login', to: 'sessions#new',     as: 'login_form'
   post   'login', to: 'sessions#create',  as: 'login_action'
   get   'logout', to: 'sessions#destroy', as: 'logout'
+
+  post  'postcategory_create', to: 'postcategories#create',  as: 'postcategory_create'
+  post 'postcategory_destroy', to: 'postcategories#destroy', as: 'postcategory_destroy'
 
   get     'posts_top/:id', to: 'posts#top',     as: 'posts_top'
   get          'post_new', to: 'posts#new',     as: 'post_new'

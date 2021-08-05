@@ -16,8 +16,26 @@ class NancyatterappsController < ApplicationController
       redirect_to posts_top_path(@nancyatterapp.id)
     else
       flash.notice = "入力が正しくありません"
-      render ("nancyatterapp_new")
+      render ("nancyatterapps/new")
     end
+  end
+
+  def admin
+    @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
+    @appcategory = Appcategory.find_by(id: @current_app.appcategory_id)
+    @postcategory = Postcategory.new
+  end
+
+  def update
+    @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
+    if @nancyatterapp.update(nancyatter_params)
+      flash.notice = "編集しました"
+      redirect_to post_top(@nancyatterapp.id)
+    else
+      flash.notice = "編集できませんでした。"
+      redirect_to app_admin_path(current_app.id)
+    end
+  
   end
 
   def index
@@ -28,20 +46,10 @@ class NancyatterappsController < ApplicationController
     @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
     session[:nancyatterapp_id] = @nancyatterapp.id
     
-    menbur = Menbur.find_by(user_id: @current_user.id, nancyatterapp_id: @nancyatterapp.id)
-    p "============"
-    p menbur
-    p @current_user.id
-    p @nancyatterapp.id
-    p "============"
-
+    menbur = Menbur.find_by(user_id: @current_user.id, nancyatterapp_id: @nancyatterapp.id)    
     if menbur
       session[:menbur_id] = menbur.id
     end
-
-    p "============="
-    p menbur
-    p "============="
 
     redirect_to posts_top_path(@nancyatterapp.id)
   end

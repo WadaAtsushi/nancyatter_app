@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
- # ====== user テストデータ作成 =============================================
+p " ====== user テストデータ作成 ============================================="
 # (1..20).each do |i|
 #     test_user = User.new(name: "user#{i}", email: "user#{i}@test.com", password: "user#{i}")
 #     test_user.save
 # end
     
 
-# ====== nancyatterapp テストデータ作成 =====================================
+p " ====== nancyatterapp テストデータ作成 ====================================="
 # *** nancyatterコントローラに貼り付けて実行 ***
 
 # def create
@@ -49,7 +49,7 @@
 # end
 
 
-# ====== menbur テストデータ作成 =====================================
+p " ====== menbur テストデータ作成 ====================================="
 # *** menbur コントローラに貼り付けて実行 ***
 
 # def create
@@ -83,3 +83,43 @@
 # end
 
 
+p "====== menbur テストデータ作成 ====================================="
+
+# def create
+#     user_session = session[:user_id]
+#     (1..5).each do |i|
+#         test_user = User.find_by(name: "user#{rand(1..10)}")
+#         category = Category.find_by(post_category: "post_category_#{rand(1..5)}")
+        
+#         session[:user_id] = test_user.id
+
+#         test_post = Post.new(
+#         title: "post#{i}", 
+#         content: "psot#{i}_content#{i}_hogefugahogefuga", 
+#         image: params[:post][:post_image],
+#         menbur_id: session[:menbur_id],
+#         category_id: category.id
+#         )
+#         p "========="
+#         p test_post
+#         p "========="
+
+#         test_post.save
+#     end
+#     session[:user_id] = user_session
+
+#     flash.notice = "投稿しました"
+#     redirect_to post_index_path
+# end
+
+p "====== psotcategory テストデータ作成 ====================================="
+
+# (1..50).each do |i|
+#     test_app = Nancyatterapp.all.sample
+#     category = Postcategory.new(
+#         nancyatterapp_id: test_app.id,
+#         category_name: "postcategory-#{i}"
+#     )
+#     category.save
+#     p category
+# end

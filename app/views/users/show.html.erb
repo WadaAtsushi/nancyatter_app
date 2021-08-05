@@ -10,7 +10,7 @@
               </div>
               <div class="card-text" >
                 <%= tag.p "アプリ名： #{menbur.nancyatterapp.app_name}", class:"card-title" %>
-                <%= tag.p "ユーザー： #{@user.name}" %>
+                <%= tag.p "管理ユーザー： #{User.find_by(id: menbur.nancyatterapp.user_id).name}" %>
                 <%= tag.p "ニックネーム： #{menbur.nickname}" %>
               </div>
               <div class="user-show-card-btn">
