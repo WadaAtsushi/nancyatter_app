@@ -8,12 +8,22 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @current_user.posts.build(post_params)
+    @post = @current_menbur.posts.build(post_params)
+    @post.user_id = @current_user.id
+    @post.nancyatterapp_id =  @current_app.id
+
+
+    p "=========="
+    p post_params
+    p "==========="
+    p @post
+    p "=========="
     if @post.save
-       flash.notice = "投稿しました"
-       redirect_to post_index_path
+      flash.notice = "投稿しました。"
+      redirect_to post_index_path
     else
-      render('post_new')
+      flash.notice = "投稿失敗しました。"
+      render('posts/new')
     end
   end
 
@@ -56,7 +66,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :content, :post_image)
+      params.require(:post).permit(:title, :postcategory_id, :content, :post_image)
     end
 
 end

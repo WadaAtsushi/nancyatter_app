@@ -14,9 +14,9 @@
           <% if post.del_flag!=1 %>
             <%= tag.tr %>
               <%= tag.td image_tag post.post_image.url, class: "post-index-image" %>
-              <%# <%= tag.td post.menbur.nickname %> %>
+              <%= tag.td post.menbur.nickname %>
               <%= tag.td link_to("#{post.title}", post_show_path(post.id) ) %>
-              <%# <%= tag.td link_to("#{post.categorys.}", post_show_path(post.id) ) %> %>
+              <%= tag.td link_to("#{post.postcategory.category_name}", post_show_path(post.id) ) %>
           <% end %>
         <% end %>    
       </tbody>

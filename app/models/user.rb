@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates :password, presence: true, uniqueness: true
 
+    has_many :posts
     has_many :menburs
     has_many :comments
     has_many :nancyatterapps
