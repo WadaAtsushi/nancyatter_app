@@ -49,9 +49,16 @@ ActiveRecord::Schema.define(version: 2021_07_20_210922) do
     t.string "title"
     t.string "content"
     t.integer "user_id"
+<<<<<<< Updated upstream
     t.integer "app_id"
     t.integer "category_id"
     t.string "image"
+=======
+    t.integer "nancyatterapp_id"
+    t.integer "postcategory_id"
+    t.string "post_image"
+    t.integer "menbur_id"
+>>>>>>> Stashed changes
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "del_flag"

@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :app_id
       t.integer :category_id
       t.string :image
+      t.integer :menbur_id
 
       t.timestamps
     end
