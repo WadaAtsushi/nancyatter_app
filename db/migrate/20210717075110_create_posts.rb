@@ -4,9 +4,12 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :content
       t.integer :user_id
-      t.integer :app_id
-      t.integer :category_id
-      t.string :image
+      t.integer :menbur_id
+      t.integer :nancyatterapp_id
+      t.integer :postcategory_id
+      t.string :post_image
+      t.integer :del_flag
+
 
       t.timestamps
     end

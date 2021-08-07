@@ -2,9 +2,10 @@ class CreateNancyatterapps < ActiveRecord::Migration[5.2]
   def change
     create_table :nancyatterapps do |t|
       t.string :app_name
+      t.string :main_text
       t.string :introduction
       t.string :loure
-      t.string :image
+      t.string :app_image
       t.integer :user_id
       t.integer :appcategory_id
       t.string :feature_like
