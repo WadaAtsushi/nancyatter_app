@@ -7,6 +7,5 @@ class User < ApplicationRecord
 
     has_many :posts
     has_many :menburs
-    has_many :comments
     has_many :nancyatterapps
 end

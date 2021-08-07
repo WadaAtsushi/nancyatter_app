@@ -8,17 +8,46 @@
         <div class="card-image">
           <%= image_tag  @post.post_image.url%>
         </div>
-
         <div class="card-text">
           <%= tag.p "タイトル: #{@post.title}", class:"card-title" %>
           <%= tag.p "投稿内容: #{@post.content}", class:"card-text" %>
         </div>
-
+        <div class="card-likes">
+          <% if Like.find_by(menbur_id: @current_menbur.id, post_id: @post.id) %>
+            <%= link_to((tag.span class: "fa fa-heart like-btn-unlike"), like_destroy_path(@post.id), {method:"post"}) %>  
+          <% else %>
+            <%= link_to((tag.span class: "fa fa-heart like-btn"), like_create_path(@post.id), {method:"post"}) %>
+          <% end %>
+          <%= Like.where(post_id: @post.id).count %>
+        </div>
         <div class="card-btn">
           <%= link_to("編集", post_edit_path(@post.id), class:"btn btn-primary") %>
           <%= link_to("削除", post_destroy_path(@post.id), data: {confirm: "「#{@post.title}」を削除します。よろしいですか？"}, class:"btn btn-primary") %>
         </div>
       </div>
     </div>
+    
+    <div class="comments">
+      <% if @comments %>
+        <div>コメント一覧</div>
+        <% @comments.each do |comment| %>
+          <div class="card">
+            <div class="coment-text">
+              <%= tag.div comment.comment_text%>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="new-comment">
+      <%= form_for(@comment, url: comment_create_path(@comment.post_id)) do |f| %>
+        <%= tag.h3 f.label :"コメント",  class: "post-new-label mt-3" %>
+        <%= f.text_area :comment_text , class: "form-control"%>
+        <%= f.hidden_field :post_id, value: @comment.id %>
+        <%= tag.div f.submit "コメントを追加", class: "btn btn-primary post-new-label mt-1" %>
+      <% end %>
+    </div>
+
 </div>
 

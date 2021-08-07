@@ -42,6 +42,11 @@
     bottom: 10px;
   }
   
+  .card-likes {
+    position: absolute;
+    right: 170px;
+    bottom: 10px;
+  }
 
   .top-message {
     position: relative;
@@ -65,4 +70,12 @@
     height: 60px;
     object-fit: cover;
     margin-bottom: 10px;
+  }
+
+  .like-btn-unlike {
+    color: #ff2581;
+  }
+
+  .like-btn {
+    color: #3b3b3b;
   }

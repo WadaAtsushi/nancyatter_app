@@ -10,5 +10,7 @@ class Post < ApplicationRecord
     belongs_to :menbur
     belongs_to :nancyatterapp
     belongs_to :postcategory
+    has_many :likes
+    has_many :comments
     
 end

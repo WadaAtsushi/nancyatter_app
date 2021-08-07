@@ -8,6 +8,7 @@
           <%= tag.th "title" %>
           <%= tag.th "category" %>
           <%= tag.th "app" %>
+          <%= tag.th "like" %>
       </thead>
       　
       <tbody>
@@ -19,6 +20,7 @@
               <%= tag.td link_to("#{post.title}", post_show_path(post.id) ) %>
               <%= tag.td link_to("#{post.postcategory.category_name}", post_show_path(post.id) ) %>
               <%= tag.td post.nancyatterapp.app_name %>
+              <%= tag.td "♡#{Like.where(post_id: post.id).count}"%>
           <% end %>
         <% end %>    
       </tbody>
