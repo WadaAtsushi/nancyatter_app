@@ -21,6 +21,7 @@ class MenbursController < ApplicationController
   end
 
   def show
+    @menbur = Menbur.find(params[:id])
   end
 
   def destroy

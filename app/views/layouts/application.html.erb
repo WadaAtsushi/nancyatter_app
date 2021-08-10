@@ -37,20 +37,16 @@
       }
     </style>
     <link href="starter-template.css" rel="stylesheet">
-
   </head>
-  <body>
 
+  <body style = "background: rgb(227, 248, 248);">
     <header>
       <%= render 'layouts/navbar', current_user: @current_user, current_app: @current_app, current_menbur: @current_menbur %>
     </header>
-
     <main>
       <%= render 'layouts/message' %>
-
-    <%= yield %>
+      <%= yield %>
     </main>
-    
     <footer>
     </footer>
   </body>

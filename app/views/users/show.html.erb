@@ -1,23 +1,21 @@
-<div class="container mx-auto" style="margin-top: 40px">
- <%= tag.h1 "#{@user.name}のマイページです" %>
-  <div class="card" style="float: left">
-    <%= tag.p "利用しているアプリ", class:"card-header" %>
-      <% if @user.menburs %>
-        <% @user.menburs.each do |menbur| %>
-            <div class="card-body" >
-              <div class="card-image">
-                <%= image_tag menbur.nancyatterapp.app_image.url %>
-              </div>
-              <div class="card-text" >
-                <%= tag.p "アプリ名： #{menbur.nancyatterapp.app_name}", class:"card-title" %>
-                <%= tag.p "管理ユーザー： #{User.find_by(id: menbur.nancyatterapp.user_id).name}" %>
-                <%= tag.p "ニックネーム： #{menbur.nickname}" %>
-              </div>
-              <div class="user-show-card-btn">
-                <%= link_to("アプリへ", app_login_path(menbur.nancyatterapp.id), class: "btn btn-primary") %>
+<div class="container-fluid" style = "background: rgb(201, 255, 242)" >
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <%= tag.h1 "#{@user.name}のマイページです", class:"mt-3" %>
+        <% if @user.menburs %>
+          <% @user.menburs.each do |menbur| %>
+           <div class="card w-100  mb-3">
+             <%= link_to("#{menbur.nancyatterapp.app_name}",app_login_path(menbur.nancyatterapp.id), class:"h4 card-header") %>
+              <div class="card-body d-sm-flex flex-sm-wrap justify-content-left" >
+                <%= image_tag menbur.nancyatterapp.app_image.url, class:"card-image mx-2", style:"width:200px;" %>
+                <div class="mt-sm-0 mt-3 mx-2">
+                    <%= tag.p "管理ユーザー： #{User.find_by(id: menbur.nancyatterapp.user_id).name}", class:"mb-0" %>
+                    <%= tag.p "ニックネーム： #{menbur.nickname}", class:"mb-0" %>
+                </div>
               </div>
             </div>
+          <% end %>
         <% end %>
-      <% end %>
+    </div>
   </div>
 </div>

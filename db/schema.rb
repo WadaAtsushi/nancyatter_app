@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2021_07_30_122719) do
 
   create_table "appcategories", force: :cascade do |t|
     t.string "category_name"
-    t.integer "nancyatterapp_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,8 +41,8 @@ ActiveRecord::Schema.define(version: 2021_07_30_122719) do
     t.integer "user_id"
     t.string "nickname"
     t.string "profile_image"
-    t.string "porfile"
-    t.integer "del_fag"
+    t.string "profile"
+    t.integer "del_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,22 +1,26 @@
-<div class="container w-75 mt-5 ">
-  <%= tag.h1 "ユーザー一覧" %>
-    <table class="table">
-      <thead>
-        <%= tag.tr %>
-          <%= tag.th "名前" %>
-          <%= tag.th "メールアドレス" %>
-      </thead>
+<div class="container-fluid" >
+  <div class="row justify-content-center">
+    <div class="col-sm-10 col-md-6 mb-5 mt-5" >
+      <%= tag.h1 "ユーザー一覧" %>
+        <table class="table">
+          <thead>
+            <%= tag.tr %>
+              <%= tag.th "名前" %>
+              <%= tag.th "メールアドレス" %>
+          </thead>
 
-      <tbody>
-        <% if @users %>
-          <% @users.each do |user| %>
-            <% if user.del_flag != 1 %>
-              <%= tag.tr %>
-                <%= tag.td user.name %>
-                <%= tag.td user.email %>
-            <% end %>
-          <% end %>
-        <%end%>
-      </tbody>
-    <table>
+          <tbody>
+            <% if @users %>
+              <% @users.each do |user| %>
+                <% if user.del_flag != 1 %>
+                  <%= tag.tr %>
+                    <%= tag.td user.name %>
+                    <%= tag.td user.email %>
+                <% end %>
+              <% end %>
+            <%end%>
+          </tbody>
+        <table>
+    </div>
+  </div>
 </div>

@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
       flash.notice = "コメント追加しました。"
       redirect_to post_show_path(@comment.post_id)
     else
+      flash.notice = "コメント挿入失敗しました。"
       redirect_to post_show_path(@comment.post_id)
     end
   end

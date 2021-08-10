@@ -5,8 +5,8 @@ class CreateMenburs < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.string :nickname
       t.string :profile_image
-      t.string :porfile
-      t.integer :del_fag
+      t.string :profile
+      t.integer :del_flag
 
       t.timestamps
     end

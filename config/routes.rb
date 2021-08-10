@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   get  'users_index',  to: 'users#index',   as: 'users_index'
   get     'user_show', to: 'users#show',    as: 'user_show'
 
-  get     'menbur_new', to: 'menburs#new',      as: 'menbur_new'
-  post 'menbur_create', to: 'menburs#create',   as: 'menbur_create'
-  get  'menburs_index', to: 'menburs#index',    as:  'menburs_index'
+  get      'menbur_new', to: 'menburs#new',      as: 'menbur_new'
+  post  'menbur_create', to: 'menburs#create',   as: 'menbur_create'
+  get   'menburs_index', to: 'menburs#index',    as:  'menburs_index'
+  get 'menbur_show/:id', to: 'menburs#show',     as:  'menbur_show'
  
   get    'login', to: 'sessions#new',     as: 'login_form'
   post   'login', to: 'sessions#create',  as: 'login_action'

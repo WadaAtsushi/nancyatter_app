@@ -1,20 +1,23 @@
-<div class="container w-75 mt-5">
-  <%= tag.h1 "アプリ一覧" %>
-
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-  <% if @nancyatterapps %>
-    <% @nancyatterapps.each do |nancyatterapp| %>
-        <div class="col">
-          <div class="card shadow-sm">
-            <%= image_tag nancyatterapp.app_image.url class:"bd-placeholder-img card-img-top" %>
-            <div class="card-body">
-              <%= link_to((tag.h4 "タイトル：#{nancyatterapp.app_name}"), app_login_path(nancyatterapp.id), {class:"card-title"}) %>
-              <%= tag.p "管理者：#{nancyatterapp.user.name}", class:"card-text" %>
-              <%= tag.p "作成日：#{nancyatterapp.created_at}", class:"card-text" %>
-              
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <%= tag.h1 "アプリ一覧", class:"col-11 mt-3", style:"height:30px" %>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+      <% if @nancyatterapps %>
+        <% @nancyatterapps.each do |nancyatterapp| %>
+            <div class="col">
+              <div class="card-column">
+                <div class="card shadow-sm">
+                  <%= image_tag nancyatterapp.app_image.url class:"bd-placeholder-img card-img-top" %>
+                  <div class="card-body">
+                    <%= link_to((tag.h4 "#{nancyatterapp.app_name}"), app_login_path(nancyatterapp.id), {class:"card-title"}) %>
+                    <%= tag.p "管理者：#{nancyatterapp.user.name}", class:"card-text" %>
+                    <%= tag.p "作成日：#{nancyatterapp.created_at}", class:"card-text" %>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-    <% end %>
-  <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
