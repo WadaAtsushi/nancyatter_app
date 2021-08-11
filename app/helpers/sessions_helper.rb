@@ -17,4 +17,5 @@ module SessionsHelper
         @current_menbur = Menbur.find_by(id: session[:menbur_id])
       end
     end
+
 end

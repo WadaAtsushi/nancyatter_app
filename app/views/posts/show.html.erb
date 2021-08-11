@@ -4,23 +4,18 @@
     <%= tag.h1 "#{@post.menbur.nickname}の投稿", class:"mt-3" %>
 
     <div class="card" >
-      <%= tag.p "投稿詳細", class:"card-header" %>
+      <%= tag.p "投稿詳細", class:"card-header #{@card_text_color}" %>
       <div class="card-body d-sm-flex flex-sm-wrap justify-content-left">
         <div class="card-image ">
           <%= image_tag  @post.post_image.url, class:"mx-2", style:"width:250px;"%>
         </div>
         <div class="mx-2 mb-sm-0 mt-3">
           <div class="card-text">
-            <%= tag.p "タイトル: #{@post.title}", class:"card-title" %>
-            <%= tag.p "投稿内容: #{@post.content}", class:"card-text" %>
+            <%= tag.p "タイトル: #{@post.title}", class:"card-title #{@card_text_color}" %>
+            <%= tag.p "投稿内容: #{@post.content}", class:"card-text #{@card_text_color}" %>
           </div>
           <div class="card-likes mb-3">
-            <% if Like.find_by(menbur_id: @current_menbur.id, post_id: @post.id)%>
-              <%= link_to((tag.span class: "fa fa-heart like-btn-unlike"), like_destroy_path(@post.id), {method:"post"}) %>  
-            <% else %>
-              <%= link_to((tag.span class: "fa fa-heart like-btn"), like_create_path(@post.id), {method:"post"}) %>
-            <% end %>
-            <%= Like.where(post_id: @post.id).count %>
+            <%= render 'likes/like' %>
           </div>
           <% if @post.menbur == @current_menbur %>
             <div class="card-btn">
@@ -31,33 +26,11 @@
         </div>
       </div>
     </div>
+    <% if @current_app.feature_comment == "implement" %>
+      <%= render 'comments/index' %>
+      <%= render 'comments/new' %>
+    <% end %>
     
-    <div class="comments">
-      <% if @comments %>
-        <%= tag.h3 "コメント一覧", class:"mt-3 mb-2" %>
-          <% @comments.each do |comment| %>
-            <div class="card mb-2">
-              <div class="d-flex justify-content-left">
-                <%= link_to((image_tag comment.menbur.profile_image.url, class:"m-2", style:"width:80px;border-radius:40%;"),menbur_show_path(comment.menbur.id)) %>
-                <div class="m-1">
-                  <%= tag.div comment.menbur.nickname, class:"h4 mx-2 mb-0" %>
-                  <%= tag.div comment.comment_text, class:"mx-2" %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-      <% end %>
-    </div>
-
-    <div class="new-comment">
-      <% new_comment = @post.comments.new %>
-      <%= form_for(new_comment, url: comment_create_path(new_comment.post.id)) do |f| %>
-        <%= tag.h3 f.label :"コメントを追加",  class: "post-new-label mt-3" %>
-        <%= f.text_area :comment_text , class: "form-control"%>
-        <%= f.hidden_field :post_id, value: new_comment.post.id %>
-        <%= tag.div f.submit "投稿", class: "btn btn-primary post-new-label mt-2 mb-3" %>
-      <% end %>
-    </div>
     </div>
   </div>
 </div>

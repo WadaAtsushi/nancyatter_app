@@ -5,8 +5,8 @@
         <table class="table">
           <thead>
             <%= tag.tr %>
-              <%= tag.th "名前" %>
-              <%= tag.th "メールアドレス" %>
+              <%= tag.th "名前", class:"#{@text_color}" %>
+              <%= tag.th "メールアドレス", class:"#{@text_color}" %>
           </thead>
 
           <tbody>
@@ -14,8 +14,8 @@
               <% @users.each do |user| %>
                 <% if user.del_flag != 1 %>
                   <%= tag.tr %>
-                    <%= tag.td user.name %>
-                    <%= tag.td user.email %>
+                    <%= tag.td user.name, class:"#{@text_color}" %>
+                    <%= tag.td user.email, class:"#{@text_color}" %>
                 <% end %>
               <% end %>
             <%end%>
