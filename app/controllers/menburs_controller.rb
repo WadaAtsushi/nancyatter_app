@@ -22,6 +22,7 @@ class MenbursController < ApplicationController
 
   def show
     @menbur = Menbur.find(params[:id])
+    @posts = @menbur.posts.page(params[:page]).per(10)
   end
 
   def destroy

@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_122719) do
     t.string "introduction"
     t.string "loure"
     t.string "app_image"
+    t.string "app_color"
     t.integer "user_id"
     t.integer "appcategory_id"
     t.string "feature_like"

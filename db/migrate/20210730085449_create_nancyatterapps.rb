@@ -6,6 +6,7 @@ class CreateNancyatterapps < ActiveRecord::Migration[5.2]
       t.string :introduction
       t.string :loure
       t.string :app_image
+      t.string :app_color
       t.integer :user_id
       t.integer :appcategory_id
       t.string :feature_like

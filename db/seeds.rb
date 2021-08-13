@@ -18,6 +18,7 @@
 
 
 # p " ====== nancyatterapp テストデータ作成 ====================================="
+# color = ["red", "blue", "yellow", "green", "black"]
 # (1..10).each do |i|
 #     test_app = Nancyatterapp.new(
 #         app_name: "test_app#{i}",
@@ -25,6 +26,7 @@
 #         introduction: "テストアプリ#{i}の紹介文です。  ===test#{i}===",
 #         loure: "テストアプリ#{i}の使用ルールです。  ===test#{i}===",
 #         app_image: "no_image.jpg",
+#         app_color: color.sample,
 #         user_id: User.all.sample.id,
 #         appcategory_id: Appcategory.all.sample.id,
 #         feature_like: "implement",
@@ -33,6 +35,7 @@
 #         feature_image: "implement"
 #     )
 #     test_app.save
+#     p test_app
 # end
 
 
@@ -47,6 +50,7 @@
 #         user_id: User.all.sample.id
 #     )
 #     test_menbur.save
+#     p test_menbur
 # end
 
 

@@ -30,7 +30,7 @@ class NancyatterappsController < ApplicationController
     @nancyatterapp = Nancyatterapp.find_by(id: params[:id])
     if @nancyatterapp.update(nancyatter_params)
       flash.notice = "編集しました"
-      redirect_to post_top(@nancyatterapp.id)
+      redirect_to posts_top_path(@nancyatterapp.id)
     else
       flash.notice = "編集できませんでした。"
       redirect_to app_admin_path(current_app.id)
@@ -64,7 +64,7 @@ class NancyatterappsController < ApplicationController
 
   private
     def nancyatter_params
-      params.require(:nancyatterapp).permit(:app_name, :main_text, :introduction, :loure, :app_image, :appcategory_id, :feature_like, :feature_comment, :feature_category, :feature_image) 
+      params.require(:nancyatterapp).permit(:app_name, :main_text, :introduction, :loure, :app_image, :app_color, :appcategory_id, :feature_like, :feature_comment, :feature_category, :feature_image) 
     end
 
 
