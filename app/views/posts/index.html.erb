@@ -10,11 +10,7 @@
                 <%= link_to(post.menbur.nickname, menbur_show_path(post.menbur.id), class:"mb-0 mx-0.5 #{@text_color}", style:"text-decoration: none;") %>
               </div>
               <div class="m-2 mt-md-0 mt-3 mx-md-5">
-                <% if @current_menbur %>
-                  <%= link_to("#{post.title} / #{post.postcategory.category_name}", post_show_path(post.id), class:"mb-0 #{@text_color}", style:"text-decoration: none;") %>
-                <% else %>
-                  <%= tag.p "#{post.title} / #{post.postcategory.category_name}", class:"mb-0" %>
-                <% end %>
+                <%= link_to("#{post.title} / #{post.postcategory.category_name}", post_show_path(post.id), class:"mb-0 #{@text_color}", style:"text-decoration: none;") %>
                 <%= tag.p post.content, class:"mb-0" %>
                 <%= tag.p "♡#{Like.where(post_id: post.id).count}", class:"mb-3" %>
               </div>

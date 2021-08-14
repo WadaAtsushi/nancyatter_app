@@ -1,23 +1,22 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <%= tag.h1 "アプリ一覧", class:"col-11 mt-3", style:"height:30px" %>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
-      <% if @nancyatterapps %>
-        <% @nancyatterapps.each do |nancyatterapp| %>
+    <div class="col-sm-12 col-md-10  mb-5 mt-5" >
+      <%= tag.h1 "アプリ一覧", class:"col-sm-11 col-lg-9 my-3", style:"height:30px" %>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
+        <% if @nancyatterapps %>
+          <% @nancyatterapps.each do |nancyatterapp| %>
             <div class="col">
               <div class="card-column mx-1 my-2">
                 <div class="card shadow-sm">
                   <%= image_tag nancyatterapp.app_image.url class:"bd-placeholder-img card-img-top" %>
-                  <div class="card-body">
-                    <%= link_to((tag.h4 "#{nancyatterapp.app_name}"), app_login_path(nancyatterapp.id), class:"card-title #{@card_text_color}", style:"text-decoration: none;") %>
-                    <%= tag.p "管理者：#{nancyatterapp.user.name}", class:"card-text" %>
-                    <%= link_to("アプリへ", app_login_path(nancyatterapp.id), class:"btn btn-primary") %>
-                  </div>
+                  <% @nancyatterapp = nancyatterapp %>
+                  <%= render 'nancyatterapps/card_body' %>
                 </div>
               </div>
             </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

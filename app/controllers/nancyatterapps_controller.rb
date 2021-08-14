@@ -39,7 +39,7 @@ class NancyatterappsController < ApplicationController
   end
 
   def index
-    @nancyatterapps = Nancyatterapp.all
+    @nancyatterapps = Nancyatterapp.all.order(created_at: :desc)
   end
 
   def login
