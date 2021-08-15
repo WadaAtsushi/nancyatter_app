@@ -1,5 +1,6 @@
 # README
 
+<<<<<<< HEAD
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -23,3 +24,6 @@ Things you may want to cover:
 
 * ...
 aaa
+=======
+テスト公開
+>>>>>>> 2e21a30f8f86778782abc1ba09f2a7c5982cf1b9
